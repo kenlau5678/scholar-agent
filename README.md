@@ -25,6 +25,8 @@ scholar-agent/
 |-- app.py
 |-- requirements.txt
 |-- .env.example
+|-- docs/
+|   `-- CODE_WALKTHROUGH.md
 `-- scholar_agent/
     |-- config.py
     |-- llm.py
@@ -39,6 +41,8 @@ scholar-agent/
     |-- critic.py
     `-- revision_workflow.py
 ```
+
+For a detailed explanation of each module, see [docs/CODE_WALKTHROUGH.md](docs/CODE_WALKTHROUGH.md).
 
 ## Workflow
 
