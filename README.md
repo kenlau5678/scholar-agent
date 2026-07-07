@@ -22,22 +22,22 @@ ScholarAgent is a Streamlit-based literature research assistant for evidence-gro
 
 ```text
 scholar-agent/
-├── app.py
-├── requirements.txt
-├── .env.example
-└── scholar_agent/
-    ├── config.py
-    ├── llm.py
-    ├── planner.py
-    ├── search_arxiv.py
-    ├── ranker.py
-    ├── pdf_reader.py
-    ├── reader.py
-    ├── evidence.py
-    ├── comparison.py
-    ├── writer.py
-    ├── critic.py
-    └── revision_workflow.py
+|-- app.py
+|-- requirements.txt
+|-- .env.example
+`-- scholar_agent/
+    |-- config.py
+    |-- llm.py
+    |-- planner.py
+    |-- search_arxiv.py
+    |-- ranker.py
+    |-- pdf_reader.py
+    |-- reader.py
+    |-- evidence.py
+    |-- comparison.py
+    |-- writer.py
+    |-- critic.py
+    `-- revision_workflow.py
 ```
 
 ## Workflow
@@ -105,6 +105,22 @@ The app supports two reading modes:
 - Deep mode: downloads and parses PDFs, then extracts important sections such as Introduction, Method, Experiments, Results, Limitations, and Conclusion.
 
 The automatic revision loop currently runs up to 2 rounds. It is implemented in `scholar_agent/revision_workflow.py`.
+
+## Future Frontend
+
+The current Streamlit app is enough for prototyping. If this project later grows into a custom web product, the recommended structure is:
+
+```text
+scholar-agent/
+|-- backend/
+|   `-- scholar_agent/
+|-- frontend/
+|   `-- ...
+|-- app.py
+`-- requirements.txt
+```
+
+For now, there is no need to create an empty `frontend/` directory. The useful preparation is to keep research logic inside `scholar_agent/` and avoid putting business logic directly into Streamlit UI code. When a separate frontend is needed, `scholar_agent/` can be exposed through a FastAPI backend and the new `frontend/` app can call that API.
 
 ## Notes
 
